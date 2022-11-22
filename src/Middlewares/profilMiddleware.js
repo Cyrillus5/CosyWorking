@@ -14,6 +14,7 @@ const profilMiddleware = (store) => (next) => (action) => {
           store.dispatch(actionSaveProfilToDisplay(response.data));
         })
         .catch((error) => {
+          // eslint-disable-next-line no-console
           console.log('requette API ERREUR', error);
         });
       break;
