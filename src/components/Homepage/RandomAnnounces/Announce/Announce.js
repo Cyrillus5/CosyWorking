@@ -13,8 +13,11 @@ function Announce({
 }) {
   const isLogged = useSelector((state) => state.user.logged);
   const wishlist = useSelector((state) => state.user.wishlist);
+  let isWished = false;
+  if (isLogged && wishlist.length !== 0) {
+    isWished = wishlist.map((workspace) => workspace.id).includes(workspaceId);
+  }
 
-  const isWished = wishlist.map((workspace) => workspace.id).includes(workspaceId);
   const dispatch = useDispatch();
 
   const handleClick = () => {
